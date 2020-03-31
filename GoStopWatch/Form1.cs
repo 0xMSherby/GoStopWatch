@@ -12,6 +12,7 @@ namespace GoStopWatch
 {
     public partial class Form1 : Form
     {
+        Time t1 = new Time();
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +33,29 @@ namespace GoStopWatch
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            t1.Seconds++;
+            label1.Text = t1.StringTime;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            t1.Reset();
+            label1.Text = "00:00:00";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
